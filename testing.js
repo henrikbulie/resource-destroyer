@@ -7,14 +7,7 @@ const { ResourceManagementClient } = require("@azure/arm-resources");
     process.env.AZURE_CLIENT_SECRET // The app registration secret for the registered application
   );
   const subscriptionId = process.env.AZURE_SUBSCRIPTION_ID;
-  const parameter = {
-    location: "norwayeast",
-    tags: {
-        tag1: "nodejs"
-    },
-    resourcegroupname: "nodejs2-rg"
-  };
-
+  
   const resourceGroupName = "nodejs2-rg"
 
   const client = new ResourceManagementClient(credential, subscriptionId);
@@ -22,4 +15,3 @@ const { ResourceManagementClient } = require("@azure/arm-resources");
   console.log(response)
 
 
-  
