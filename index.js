@@ -6,9 +6,9 @@ const { DefaultAzureCredential } = require("@azure/identity");
 // Azure SDK clients accept the credential as a parameter
 const credential = new DefaultAzureCredential();
 
-// Subscription ID from the Azure subscription
 const subscriptionId = process.env.AZURE_SUBSCRIPTION_ID;
 
+// Create a resource group
 function createOrUpdateResourceGroup(resourceGroupName) {
   const client = new ResourceManagementClient(credential, subscriptionId);
 const response = client.resourceGroups
