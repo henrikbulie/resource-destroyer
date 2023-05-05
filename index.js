@@ -6,15 +6,15 @@ const { DefaultAzureCredential } = require("@azure/identity");
 // Azure SDK clients accept the credential as a parameter
 const credential = new DefaultAzureCredential();
 
-
-
 // Subscription ID from the Azure subscription
 const subscriptionId = process.env.AZURE_SUBSCRIPTION_ID;
 
-const resourceGroupName = "nodejs2-rg";
-
-const client = new ResourceManagementClient(credential, subscriptionId);
+function createOrUpdateResourceGroup(resourceGroupName) {
+  const client = new ResourceManagementClient(credential, subscriptionId);
 const response = client.resourceGroups
   .createOrUpdate(resourceGroupName, { location: "westeurope" })
   .then(console.log);
 console.log(response);
+}
+
+createOrUpdateResourceGroup("myResourceGroup");
